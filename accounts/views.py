@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.views import LoginView
+
 from .forms import RegisterUserForm
     # Used so we can customize the user registration form.
 
@@ -22,3 +24,10 @@ def signupView(request):
     form = RegisterUserForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'accounts/signup.html', context)
+
+class Login(LoginView):
+    template_name = 'accounts/login.html'
+    
+def logoutView(request):
+    logout(request)
+    return redirect ('home')

@@ -1,6 +1,6 @@
 import django.forms as forms
 from .models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 class RegisterUserForm(UserCreationForm):
     class Meta:
@@ -14,3 +14,10 @@ class RegisterUserForm(UserCreationForm):
             'password1': forms.PasswordInput(),
             'password2': forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}),
         }
+
+class LoginForm(AuthenticationForm):
+    error_messages = {
+        'invalid_login': {
+            'message': "Please enter a correct username and password.",
+        },
+    }    

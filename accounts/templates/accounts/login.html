@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+{% comment %} <link rel="stylesheet" href="{% static 'css/home.css' %}" /> {% endcomment %}
+{% endblock %} {% block content %}
+
+<h1>Log In</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+
+{% endblock %}
