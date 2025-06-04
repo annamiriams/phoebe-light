@@ -1,16 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.conf import settings
+    # Updating per refactoring of User model to accounts/models.py.
 
-# Create your models here.
-
-class User(AbstractUser):
-    """Custom User model with location fields"""
-    # Django's built-in fields are inherited:
-    # username, email, password, first_name, last_name, etc.
-    
-    def __str__(self):
-        return f'{self.first_name} {self.last_name}'
-    
 class Issue(models.Model):
     number = models.PositiveIntegerField(unique=True)
         # Maybe try to have this increment automatically but leaving as is for now.
@@ -37,7 +28,8 @@ class Submission(models.Model):
     title = models.CharField(max_length=500, blank=False)
     author = models.CharField(max_length=50, blank=False)
     author_bio = models.TextField(max_length=500, blank=False)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+        # Updating per refactoring of User model to accounts/models.py.
     submission_text = models.TextField(blank=False)
         # No set max_length at this point.
     approval_status = models.CharField(max_length=8, choices=APPROVAL_STATUS, default='pending')
