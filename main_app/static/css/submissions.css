@@ -1,14 +1,103 @@
 .submission-container {
     max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 2em auto;
+    padding: 2em;
 }
+
+/* Fill the submission-conatiner with field inputs. */
+.submission-container input,
+.submission-container textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5em;
+}
+
+form input,
+form textarea {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #000;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Adie likes it without this styling but keeping it here for now. */
+/* .submission-container form {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7);
+} */
 
 .submission-heading {
     text-align: center;
 }
 
+.btn-submit {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-submit button,
+.submission-container label,
+.submission-item a,
+.submission-item span {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
+}
+
 .submission-guidelines p {
     width: 70%;
     margin: 0 auto;
+}
+
+.user-submissions {
+    text-align: center;
+}
+
+.user-submissions ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.submission-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 5px;
+    min-width: 200px;
+    max-width: 250px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.submission-item a {
+    font-weight: 500;
+}
+
+.login-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+    margin: 3em auto;
+    max-width: 500px;
+}
+
+.login-prompt a {
+    display: inline-block;
+    text-align: center;
 }

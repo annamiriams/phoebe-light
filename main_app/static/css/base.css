@@ -7,7 +7,18 @@ body {
     box-sizing: border-box;
 }
 
-h1, 
+/* Fit image to entire background.  */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+h1,
 h2,
 a,
 label,
@@ -34,3 +45,15 @@ p {
     font-size: 1.2em;
 }
 
+.btn-primary {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
+    color: black;
+    border: 1px solid black;
+    padding: .4em;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}

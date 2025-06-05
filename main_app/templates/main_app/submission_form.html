@@ -20,19 +20,23 @@
         <form action="" method="post" autocomplete="off">
             {% csrf_token %}
             <table>
-                {{ form.as_table }}
+                {{ form.as_p }}
             </table>
-            <button type="submit" class="btn submit">Submit</button>
+            <div class='btn-submit'>
+                <button type="submit" class='btn-primary'>Submit</button>
+            </div>
         </form>
     </div>
 
-    <div>
+    <div class='user-submissions'>
         <h2 class='submission-heading'>Your Submissions</h2>
         {% if submissions %}
-            <ul >
+            <ul>
                 {% for submission in submissions %}
-                    <li><a href=''>{{ submission.title }}</a></li>
-                    <li>Status: {{ submission.approval_status }}</li>
+                    <li class='submission-item'>
+                        <a href=''>{{ submission.title }}</a>
+                        <span>Status: {{ submission.approval_status }}</span>
+                    </li>
                 {% endfor %}
             </ul>
         {% else %}
@@ -41,12 +45,11 @@
     </div>
 
 {% else %}
-    <a href='{% url 'register' %}'>Register to Submit</a>
-    <p>or</p>
-    <p>
-        View your submissions by logging in...
-    </p>
-    <a href='{% url 'login' %}'>Log In</a>
+    <div class='login-prompt'>
+        <a href='{% url 'register' %}' class='btn-primary'>Register to Submit</a>
+        {% comment %} <p>or view your submissions by logging in</p> {% endcomment %}
+        <a href='{% url 'login' %}' class='btn-primary'>Log In</a>
+    </div>
 {% endif %}
 
 {% endblock %}
