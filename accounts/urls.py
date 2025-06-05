@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # Sign up
-    path('signup/', views.signupView, name='signup'),
+    path('register/', views.registerView, name='register'),
     # Log in
     path('login/', views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
         # Necessary to add template_name= to override the default login view at registration/login.html

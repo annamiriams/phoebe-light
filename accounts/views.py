@@ -7,7 +7,7 @@ from .forms import RegisterUserForm
 
 # Create your views here.
 
-def signupView(request):
+def registerView(request):
     error_message = ''
     if request.method == 'POST':
         # This is how to create a 'user' form object that includes the data from the browser.
@@ -23,7 +23,7 @@ def signupView(request):
     # A bad POST or a GET request, so render signup.html with an empty form
     form = RegisterUserForm()
     context = {'form': form, 'error_message': error_message}
-    return render(request, 'accounts/signup.html', context)
+    return render(request, 'accounts/register.html', context)
 
 class Login(LoginView):
     template_name = 'accounts/login.html'

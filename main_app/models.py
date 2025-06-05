@@ -7,7 +7,7 @@ class Issue(models.Model):
         # Maybe try to have this increment automatically but leaving as is for now.
     custom_title = models.CharField(max_length=100, blank=True)
         # Leaves room for 'Special Issue' or the like.
-    editors_note = models.TextField(max_length=500)
+    editors_note = models.TextField(max_length=1000)
     
     def __str__(self):
         return self.title
@@ -21,13 +21,13 @@ class Issue(models.Model):
 class Submission(models.Model):
     APPROVAL_STATUS = [
         ('pending', 'Pending'),
-        ('approved', 'Approved'),
-        ('denied', 'Denied'),
+        ('accepted', 'Accepted'),
+        ('declined', 'Declined'),
     ]
     
     title = models.CharField(max_length=500, blank=False)
-    author = models.CharField(max_length=50, blank=False)
-    author_bio = models.TextField(max_length=500, blank=False)
+    author = models.CharField(max_length=100, blank=False)
+    author_bio = models.TextField(max_length=1000, blank=False)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
         # Updating per refactoring of User model to accounts/models.py.
     submission_text = models.TextField(blank=False)
