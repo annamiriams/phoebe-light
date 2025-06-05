@@ -19,6 +19,7 @@ class SubmissionCreate(CreateView):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
     
+    # Pass a context variable to the SubmissionCreate view so that I can render a user's submissions on the page.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
