@@ -1,0 +1,36 @@
+/* Global styles */
+
+body {
+    font-size: 16px;
+    margin: 30px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, 
+h2,
+a,
+label,
+ul {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2em;
+}
+

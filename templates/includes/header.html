@@ -1,20 +1,21 @@
-<header>
+{% load static %}
+<header class='header-container'>
     <div>
         <a href="/">
-            <img src="" alt="The Phoebe Light Logo" />
+            <img src="{% static 'images/phoebe_light_logo.png' %}" alt="The Phoebe Light Logo" class='logo-img' />
         </a>
     </div>
     <nav>
-      <ul>
+      <ul id='menu'>
         {% if user.is_authenticated %}
             <li><a href='{% url 'home' %}'>Home</a></li>
             <li><a href='{% url 'about' %}'>About</a></li>
             <li><a href='{% url 'submissions' %}'>Submissions</a></li>
             <li><a href=''>Profile</a></li>
-            <li>
+            <li >
                 <form id="logout-form" method="post" action="{% url 'logout' %}">
                   {% csrf_token %}
-                  <button type="submit">Log out</button>
+                  <button type="submit" id='logout-btn'>Log out</button>
                 </form>
             </li>
         {% else %}

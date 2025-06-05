@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
-{% comment %} <link rel="stylesheet" href="{% static 'css/home.css' %}" /> {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/submissions.css' %}" />
 {% endblock %} {% block content %}
 
 <h1>Submissions</h1>
 <br>
-<div>
-    <h2>Submission Guidelines</h2>
+<div class='submission-guidelines'>
+    <h2 class='submission-heading'>Submission Guidelines</h2>
     <p>{% lorem 1 b random %}</p>
 </div>
 <br>
@@ -15,27 +15,31 @@
             {{ form.errors }}
         </div>
     {% endif %}
+    <div class='submission-container'>
+        <h2 class='submission-heading'>Create Submission</h2>
+        <form action="" method="post" autocomplete="off">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit" class="btn submit">Submit</button>
+        </form>
+    </div>
 
-    <h2>Create Submission</h2>
-    <form action="" method="post" class="form-container" autocomplete="off">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button type="submit" class="btn submit">Submit</button>
-    </form>
-    <br>
-    <h2>Your Submissions</h2>
-    {% if submissions %}
-        <ul>
-            {% for submission in submissions %}
-                <li><a href=''>{{ submission.title }}</a></li>
-                Status: {{ submission.approval_status }}
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Looks like you haven't submitted yet.</p>
-    {% endif %}
+    <div>
+        <h2 class='submission-heading'>Your Submissions</h2>
+        {% if submissions %}
+            <ul >
+                {% for submission in submissions %}
+                    <li><a href=''>{{ submission.title }}</a></li>
+                    <li>Status: {{ submission.approval_status }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Looks like you haven't submitted yet.</p>
+        {% endif %} 
+    </div>
+
 {% else %}
     <a href='{% url 'register' %}'>Register to Submit</a>
     <p>or</p>
