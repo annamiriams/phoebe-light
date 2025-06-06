@@ -12,6 +12,10 @@
     padding: 0.5em;
 }
 
+.submission-container p {
+    font-weight: 400;
+}
+
 form input,
 form textarea {
     background-color: rgba(255, 255, 255, 0.6);
@@ -44,6 +48,7 @@ form textarea {
     justify-content: center;
 }
 
+.submission-container span,
 .btn-submit button,
 .submission-container label,
 .submission-item a,
@@ -74,6 +79,7 @@ form textarea {
 .submission-item {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     border: 1px solid #ccc;
     padding: 1em;
     border-radius: 5px;
@@ -85,19 +91,16 @@ form textarea {
 
 .submission-item a {
     font-weight: 500;
+    align-self: center;
 }
 
-.login-prompt {
+.submission-actions {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 1em;
-    text-align: center;
-    margin: 3em auto;
-    max-width: 500px;
 }
 
-.login-prompt a {
-    display: inline-block;
-    text-align: center;
+#issue-title {
+    font-size: 1.2em;
 }

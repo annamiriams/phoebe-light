@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/submissions.css' %}" />
+{% endblock %} {% block content %}
+
+<h1>{{ submission.title }}</h1>
+
+<div class='submission-container'>
+    <h2>Are you sure you want to delete your submission, {{ submission.title }}?</h2>
+    <form action="" method="post" class="form">
+        {% csrf_token %}
+        <div class='submission-actions'>
+            <a href="{% url 'submission-detail' submission.id %}" class="btn-primary">Cancel</a>
+            <button type="submit" class="btn-primary">Delete</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

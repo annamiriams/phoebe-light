@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView
 from .models import Submission, Issue
 from .forms import SubmissionForm
+from django.urls import reverse_lazy
 
 def home(request):
     return render(request, 'home.html')
@@ -27,3 +29,29 @@ class SubmissionCreate(CreateView):
         else: 
             context['submissions'] = None
         return context
+
+class SubmissionDetail(DetailView):
+    model = Submission
+    
+class SubmissionUpdate(UpdateView):
+    model = Submission
+    fields = [
+        'title',
+        'author',
+        'submission_text',
+        'author_bio',
+    ]
+    
+    # Return to details page using reverse_lazy, which doesn't generate the URL immediately.
+    def get_success_url(self):
+        return reverse_lazy('submission-detail', kwargs={'pk': self.object.pk})
+    
+    # Pass a context variable to SubmissionUpdate view so that I can remove user submissions from the update page.
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_update'] = True
+        return context
+    
+class SubmissionDelete(DeleteView):
+    model = Submission
+    success_url = '/'

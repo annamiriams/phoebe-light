@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/submissions.css' %}" />
+{% endblock %} {% block content %}
+
+<h1>{{ submission.title }}</h1>
+
+<div class='submission-container'>
+    <p>Author:</p>
+    <span>{{ submission.author }}</span>
+    <p>Submission text:</p>
+    <span>{{ submission.submission_text }}</span>
+    <p>Author bio:</p>
+    <span>{{ submission.author_bio }}</span>
+
+    <span>
+        {% if submission.approval_status == 'accepted' %}
+            <p>Status:</p>
+            <span>{{ submission.approval_status|capfirst}} and published in <a href='' id='issue-title'>Phoebe Light: {{ submission.approved_issue}}</a>.
+        {% else %}
+            <p>Status:</p>
+            <span>{{ submission.approval_status|capfirst}}
+        {% endif %}
+    </span>
+</div>
+
+{% if submission.approval_status == 'pending' %}
+    <div class='submission-actions'>
+        <a href="{% url 'submission-update' submission.id %}" class='btn-primary'>Edit</a>
+        <a href="{% url 'submission-delete' submission.id %}" class='btn-primary'>Delete</a>
+    </div>
+{% else %}
+    <div class='submission-actions'>
+        <a href="{% url 'submissions' %}" class='btn-primary'>Return</a>
+    </div>
+{% endif %}
+
+
+{% endblock %}

@@ -30,11 +30,20 @@ ul {
 
 h1 {
     text-align: center;
-    font-size: 3em;
+    font-size: 3.6em;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 2.6em;
+}
+
+h3 {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2em; 
+    margin: 0 0 1em 0;
 }
 
 p {
@@ -45,7 +54,8 @@ p {
     font-size: 1.2em;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-secondary {
     font-family: "Source Sans 3", sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -57,3 +67,40 @@ p {
     background-color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
 }
+
+.btn-secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .4em;
+    max-width: fit-content;
+    background-color: rgba(235, 202, 150, 0.6);
+    border: none;
+
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+    margin: 3em auto;
+    max-width: 500px;
+}
+
+.login-prompt a {
+    display: inline-block;
+    text-align: center;
+}
+

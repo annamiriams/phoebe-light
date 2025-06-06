@@ -10,46 +10,55 @@
 </div>
 <br>
 {% if user.is_authenticated %}
-    {% if form.errors %}
-        <div>
-            {{ form.errors }}
+{% if form.errors %}
+<div>
+    {{ form.errors }}
+</div>
+{% endif %}
+<div class='submission-container'>
+    <h2 class='submission-heading'>Create Submission</h2>
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        <table>
+            {{ form.as_p }}
+        </table>
+        <div class='btn-submit'>
+            <button type="submit" class='btn-primary'>Submit</button>
         </div>
-    {% endif %}
-    <div class='submission-container'>
-        <h2 class='submission-heading'>Create Submission</h2>
-        <form action="" method="post" autocomplete="off">
-            {% csrf_token %}
-            <table>
-                {{ form.as_p }}
-            </table>
-            <div class='btn-submit'>
-                <button type="submit" class='btn-primary'>Submit</button>
-            </div>
-        </form>
-    </div>
+    </form>
+</div>
 
-    <div class='user-submissions'>
-        <h2 class='submission-heading'>Your Submissions</h2>
-        {% if submissions %}
-            <ul>
-                {% for submission in submissions %}
-                    <li class='submission-item'>
-                        <a href=''>{{ submission.title }}</a>
-                        <span>Status: {{ submission.approval_status }}</span>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>Looks like you haven't submitted yet.</p>
-        {% endif %} 
-    </div>
+{% if not is_update %}
+<div class='user-submissions'>
+    <h2 class='submission-heading'>Your Submissions</h2>
+    {% if submissions %}
+    <ul>
+        {% for submission in submissions %}
+        {% comment %} <a href='{% url ' submission-detail' submission.id %}'> {% endcomment %}
+            <li class='submission-item'>
+                <h3 class='submission-title'>{{ submission.title }}</h3>
+                <span>Status: {{ submission.approval_status|capfirst }}</span>
+                {% if submission.approval_status == 'accepted' %}
+                <span>Published in: {{ submission.approved_issue}}</span>
+                <br>
+                {% endif %}
+                <a href='{% url 'submission-detail' submission.id %}' class='btn-secondary'>View</a>
+            </li>
+            {% comment %} </a> {% endcomment %}
+            {% endfor %}
+    </ul>
+    {% else %}
+    <p>Looks like you haven't submitted yet.</p>
+    {% endif %}
+</div>
+{% endif %}
 
 {% else %}
-    <div class='login-prompt'>
-        <a href='{% url 'register' %}' class='btn-primary'>Register to Submit</a>
-        {% comment %} <p>or view your submissions by logging in</p> {% endcomment %}
-        <a href='{% url 'login' %}' class='btn-primary'>Log In</a>
-    </div>
+<div class='login-prompt'>
+    <a href='{% url 'register' %}' class='btn-primary'>Register to Submit</a>
+    {% comment %} <p>or view your submissions by logging in</p> {% endcomment %}
+    <a href='{% url 'login' %}' class='btn-primary'>Log In</a>
+</div>
 {% endif %}
 
 {% endblock %}
