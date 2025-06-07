@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Submission, Issue
-from django.contrib.auth.models import User
+
 from .forms import SubmissionForm
 from django.urls import reverse_lazy
 

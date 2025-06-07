@@ -16,9 +16,10 @@
     <ul>
         {% for submission in issue.submissions.all %}
         <li class='author-item'>
-            <a href=""><h3>{{ submission.author }}</h3></a>
+            <h3>{{ submission.author }}</h3>
             {% comment %} <p>2 Poems</p></a> {% endcomment %}
             {% comment %} <h3>///</h3> {% endcomment %}
+            <p>{{ submission.submission_text }}</p>
         </li>
         {% endfor %}
     </ul>
