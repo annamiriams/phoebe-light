@@ -1,7 +1,25 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'css/issues.css' %}" />
 {% endblock %} {% block content %}
 
-<h1>Home</h1>
+<h1>Phoebe Light</h1>
+
+<div class='issue-container'>
+    {% for issue in issues %}
+    <div>
+        {% if issue.status == 'published' %}
+        <a href="{% url 'issue-detail' issue.id %}" class='issue-link'>
+            <h2>{{ issue.title }}</h2> 
+            <div class='authors'>
+                {% for submission in issue.submissions.all %}
+                    <h3>{{ submission.author }} ...</h3>
+                {% endfor %}
+            </div>
+        </a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}

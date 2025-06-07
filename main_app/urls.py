@@ -8,4 +8,5 @@ urlpatterns = [
     path('submissions/<int:pk>/', views.SubmissionDetail.as_view(), name='submission-detail'),
     path('submissions/<int:pk>/update/', views.SubmissionUpdate.as_view(), name='submission-update'),
     path('submissions/<int:pk>/delete/', views.SubmissionDelete.as_view(), name='submission-delete'),
+    path('issues/<int:pk>/', views.IssueDetail.as_view(), name='issue-detail'),
 ]

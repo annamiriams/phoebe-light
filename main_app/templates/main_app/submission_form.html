@@ -36,7 +36,7 @@
         {% for submission in submissions %}
         {% comment %} <a href='{% url ' submission-detail' submission.id %}'> {% endcomment %}
             <li class='submission-item'>
-                <h3 class='submission-title'>{{ submission.title }}</h3>
+                <h4 class='submission-title'>{{ submission.title }}</h4>
                 <span>Status: {{ submission.approval_status|capfirst }}</span>
                 {% if submission.approval_status == 'accepted' %}
                 <span>Published in: {{ submission.approved_issue}}</span>

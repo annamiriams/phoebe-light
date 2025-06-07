@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'css/issues.css' %}" />
+{% endblock %} {% block content %}
+
+<h1>{{ issue.title }}</h1>
+
+<div class='issue-container'>
+    {% if issue.editors_note %}
+        {% comment %} <span id='editors-note'>{{ issue.editors_note }}</span> {% endcomment %}
+        <p id='editors-note'>{% lorem 1 b random %}</p>
+    {% endif %}
+</div>
+
+<div class='issue-container'>
+    <ul>
+        {% for submission in issue.submissions.all %}
+        <li class='author-item'>
+            <a href=""><h3>{{ submission.author }}</h3></a>
+            {% comment %} <p>2 Poems</p></a> {% endcomment %}
+            {% comment %} <h3>///</h3> {% endcomment %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+    
+{% endblock %}

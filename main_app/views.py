@@ -2,14 +2,22 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Submission, Issue
+from django.contrib.auth.models import User
 from .forms import SubmissionForm
 from django.urls import reverse_lazy
 
 def home(request):
-    return render(request, 'home.html')
+    issues = Issue.objects.prefetch_related('submissions').all()
+    
+    return render(request, 'home.html', {
+        'issues': issues,
+    })
 
 def about(request):
     return render(request, 'about.html')
+
+class IssueDetail(DetailView):
+    model = Issue
 
 class SubmissionCreate(CreateView):
     model = Submission

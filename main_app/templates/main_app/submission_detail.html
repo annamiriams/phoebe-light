@@ -15,8 +15,8 @@
     <span>
         {% if submission.approval_status == 'accepted' %}
             <p>Status:</p>
-            <span>{{ submission.approval_status|capfirst}} and published in <a href='' id='issue-title'>Phoebe Light: {{ submission.approved_issue}}</a>.
-        {% else %}
+            <span>{{ submission.approval_status|capfirst}} and published in <a href="{% url 'issue-detail' submission.approved_issue.id %}" id='issue-title'>Phoebe Light: {{ submission.approved_issue}}</a>.
+        {% else %} 
             <p>Status:</p>
             <span>{{ submission.approval_status|capfirst}}
         {% endif %}

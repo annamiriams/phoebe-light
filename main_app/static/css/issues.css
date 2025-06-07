@@ -1,0 +1,60 @@
+.issue-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.issue-container h3 {
+    margin: 0;
+}
+
+#editors-note {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.author-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.author-item a {
+    text-decoration: overline;
+}
+
+.author-item p {
+    margin: .6em;
+}
+
+.issue-link {
+    display: flex;
+    align-items: baseline;  
+    gap: 3em;
+}
+
+.issue-link h2 {
+    margin: 0;
+    display: inline-block; 
+    font-size: 1.8em;
+}
+
+.authors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    margin: 0;
+    align-items: baseline;  
+}
+
+.authors h3 {
+    margin: 0;
+    font-style: italic;
+    font-size: 1.4em;
+    display: inline-block;
+}
