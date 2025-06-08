@@ -89,31 +89,11 @@ ul {
     max-width: fit-content;
     background-color: rgba(235, 202, 150, 0.6);
     border: none;
-
     font-family: "Source Sans 3", sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 1em;
 }
 
-.login-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.login-prompt {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    text-align: center;
-    margin: 3em auto;
-    max-width: 500px;
-}
-
-.login-prompt a {
-    display: inline-block;
-    text-align: center;
-}
 
