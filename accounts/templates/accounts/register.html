@@ -6,6 +6,7 @@
 <div class='login-container'>
     <form method="POST">
         {% csrf_token %}
+        {{ form.media }}
         {{ form.as_p }}
         <div class='login-prompt'>
             <button type="submit" class='btn-primary'>Register to Submit</button>

@@ -13,14 +13,30 @@
 }
 
 .submission-container p {
-    font-weight: 400;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
 }
+
+.submission-info {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #000;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+/* If other CKEditor styling comes back weird with submissions, target those by .submission-info h1, h2, etc. */
 
 form input,
 form textarea {
     background-color: rgba(255, 255, 255, 0.6);
     color: #000;
-    border: 1px solid #ccc;
+    border: 1px solid #e6c893;
     padding: 10px;
     border-radius: 4px;
     width: 100%;
@@ -48,16 +64,20 @@ form textarea {
     justify-content: center;
 }
 
-.submission-container span,
+.submission-container div,
 .btn-submit button,
 .submission-container label,
 .submission-item a,
-.submission-item span {
+.submission-item div {
     font-family: "Source Sans 3", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
     font-size: 1em;
+}
+
+.submission-container label {
+    font-size: 1.2em;
 }
 
 .submission-guidelines p {
@@ -92,6 +112,16 @@ form textarea {
 .submission-item a {
     font-weight: 500;
     align-self: center;
+}
+
+.status {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 5px;
+    max-width: 200px;
+    margin: 2.6em auto;
+    text-align: left;
 }
 
 .submission-actions {

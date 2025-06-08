@@ -1,0 +1,30 @@
+:root {
+    --ck-editor-background: rgba(255, 255, 255, 0.6);
+    --ck-toolbar-background: rgba(255, 255, 255, 0.6);
+
+    --ck-border-radius: 4px;
+    --ck-font-size-base: 16px;
+
+    --ck-custom-background: rgba(255, 255, 255, 0.6);
+    --ck-custom-border-color: #e6c893;
+
+    --ck-color-focus-border: #e6c893;
+    --ck-color-base-border: #e6c893;
+
+    --ck-color-button-default-hover-background: #e6c893;
+    --ck-color-button-on-background: white;
+    --ck-color-button-on-color: #e6c893;
+    --ck-color-button-on-hover-background: rgba(255, 255, 255);
+
+    --ck-color-toolbar-background: rgba(255, 255, 255, 0.6);
+    --ck-color-toolbar-border: #e6c893;
+    --ck-color-panel-background: rgba(255, 255, 255, 0.8);
+}
+
+.ck.ck-editor__editable_inline {
+    background-color: var(--ck-editor-background) !important;
+}
+
+.ck.ck-toolbar {
+    background-color: var(--ck-toolbar-background) !important;
+}

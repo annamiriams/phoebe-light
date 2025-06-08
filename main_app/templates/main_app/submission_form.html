@@ -20,6 +20,7 @@
     <form action="" method="post" autocomplete="off">
         {% csrf_token %}
         <table>
+            {{ form.media }}
             {{ form.as_p }}
         </table>
         <div class='btn-submit'>
@@ -37,9 +38,9 @@
         {% comment %} <a href='{% url ' submission-detail' submission.id %}'> {% endcomment %}
             <li class='submission-item'>
                 <h4 class='submission-title'>{{ submission.title }}</h4>
-                <span>Status: {{ submission.approval_status|capfirst }}</span>
+                <div>Status: {{ submission.approval_status|capfirst }}</div>
                 {% if submission.approval_status == 'accepted' %}
-                <span>Published in: {{ submission.approved_issue}}</span>
+                <div>Published in: {{ submission.approved_issue}}</div>
                 <br>
                 {% endif %}
                 <a href='{% url 'submission-detail' submission.id %}' class='btn-secondary'>View</a>

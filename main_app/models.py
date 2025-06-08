@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
     # Updating per refactoring of User model to accounts/models.py.
+from django_ckeditor_5.fields import CKEditor5Field
 
 class Issue(models.Model):
     STATUS = [
@@ -13,7 +14,7 @@ class Issue(models.Model):
         # Maybe try to have this increment automatically but leaving as is for now.
     custom_title = models.CharField(max_length=100, blank=True)
         # Leaves room for 'Special Issue' or the like.
-    editors_note = models.TextField(max_length=1000)
+    editors_note = CKEditor5Field()
     published_authors = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='published_issues')
         # related_name will let me reverse search (find a user's published_issues on an author's page)
     status = models.CharField(max_length=9, choices=STATUS, default='pending')
@@ -36,10 +37,10 @@ class Submission(models.Model):
     
     title = models.CharField(max_length=500, blank=False)
     author = models.CharField(max_length=100, blank=False)
-    author_bio = models.TextField(max_length=1000, blank=False)
+    author_bio = CKEditor5Field()
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
         # Updating per refactoring of User model to accounts/models.py.
-    submission_text = models.TextField(blank=False)
+    submission_text = CKEditor5Field()
         # No set max_length at this point.
     approval_status = models.CharField(max_length=8, choices=APPROVAL_STATUS, default='pending')
     approved_issue = models.ForeignKey(Issue, null=True, blank=True, on_delete=models.SET_NULL, related_name='submissions')

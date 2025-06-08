@@ -5,34 +5,50 @@
 <h1>{{ submission.title }}</h1>
 
 <div class='submission-container'>
-    <p>Author:</p>
-    <span>{{ submission.author }}</span>
-    <p>Submission text:</p>
-    <span>{{ submission.submission_text }}</span>
-    <p>Author bio:</p>
-    <span>{{ submission.author_bio }}</span>
+    <h4>Author:</h4>
+    <div class='submission-info'>
+        {{ submission.author }}
+    </div>
+    <h4>Submission text:</h4>
+    <div class='submission-info'>
+        {{ submission.submission_text|safe }}
+    </div>
+    <h4>Author bio:</h4>
+    <div class='submission-info'>
+        {{ submission.author_bio|safe }}
+    </div>
 
-    <span>
+    <div>
         {% if submission.approval_status == 'accepted' %}
-            <p>Status:</p>
-            <span>{{ submission.approval_status|capfirst}} and published in <a href="{% url 'issue-detail' submission.approved_issue.id %}" id='issue-title'>Phoebe Light: {{ submission.approved_issue}}</a>.
-        {% else %} 
-            <p>Status:</p>
-            <span>{{ submission.approval_status|capfirst}}
+        <div class='status'>
+            <h4>Status:</h4>
+            <div>
+                {{ submission.approval_status|capfirst}} and published in <a
+                href="{% url 'issue-detail' submission.approved_issue.id %}" id='issue-title'>Phoebe Light: 
+                {{ submission.approved_issue }}</a>.
+                </div>
+        </div>
+        {% else %}
+        <div class='status'>
+            <h4>Status:</h4>
+            <div>
+                {{ submission.approval_status|capfirst}}
+            </div>
+        </div>
         {% endif %}
-    </span>
+
+        {% if submission.approval_status == 'pending' %}
+        <div class='submission-actions'>
+            <a href="{% url 'submission-update' submission.id %}" class='btn-primary'>Edit</a>
+            <a href="{% url 'submission-delete' submission.id %}" class='btn-primary'>Delete</a>
+        </div>
+        {% else %}
+        <div class='submission-actions'>
+            <a href="{% url 'submissions' %}" class='btn-primary'>Return</a>
+        </div>
+        {% endif %}
+
+    </div>
 </div>
-
-{% if submission.approval_status == 'pending' %}
-    <div class='submission-actions'>
-        <a href="{% url 'submission-update' submission.id %}" class='btn-primary'>Edit</a>
-        <a href="{% url 'submission-delete' submission.id %}" class='btn-primary'>Delete</a>
-    </div>
-{% else %}
-    <div class='submission-actions'>
-        <a href="{% url 'submissions' %}" class='btn-primary'>Return</a>
-    </div>
-{% endif %}
-
 
 {% endblock %}

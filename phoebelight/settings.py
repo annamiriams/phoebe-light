@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = 'submissions'
@@ -131,3 +136,38 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Adding to allow AbstractUser
 AUTH_USER_MODEL = 'accounts.User'
+
+# Adding for CKEditor
+MEDIA_URL = '/media/'
+
+CKEDITOR_5_UPLOAD_FILE_TYPES = ['jpeg', 'png', 'jpg'] 
+
+CKEDITOR_5_CUSTOM_CSS = 'css/ckeditor_custom.css'
+
+CKEDITOR_5_CONFIGS = {
+    "default": {
+        "toolbar": [
+            "heading", "|",
+            "bold", "italic", "underline", "link", "bulletedList", "numberedList", "|",
+            'blockQuote','|',
+            'insertTable','|',
+            "insertImage", "|",
+            "sourceEditing"
+        ],
+        "image": {
+            "toolbar": [
+                "imageTextAlternative", "|",
+                "imageStyle:alignLeft", 
+                "imageStyle:alignRight", 
+                "imageStyle:alignCenter", "|", 
+            ],
+
+        },
+        'table': {
+            'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',
+            'tableProperties', 'tableCellProperties' ],
+        },
+
+    }
+}
+
