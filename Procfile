@@ -1,2 +1,2 @@
 web: gunicorn phoebelight.wsgi
-worker: python manage.py 
+web: python manage.py runserver %PORT%
