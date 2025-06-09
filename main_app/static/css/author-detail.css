@@ -1,0 +1,21 @@
+.submission-container,
+.author-bio {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.submission-container h3 {
+    margin: 0;
+}
+
+.author-bio {
+    padding: 3em 0 0;
+}
+
+.author-bio p {
+    font-style: italic;
+}
+
+.author-bio span {
+    background-color: transparent !important;
+}

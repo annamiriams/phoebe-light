@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/author-detail.css' %}" />
+{% endblock %} {% block content %}
+
+<h1>{{ author_name }}</h1>
+
+<div class='submission-container'>
+    <ul>
+        {% for submission in submissions %}
+        <li class='submission-item'>
+            <h3>{{ submission.title }}</h3>
+            <br>
+            <div>{{ submission.submission_text|safe }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class='author-bio'>
+        {% for submission in submissions %}
+            <p>{{ submission.author_bio|safe }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+<div class='btn-container'>
+    <a href="{% url 'issue-detail' issue.id %}" class='btn-primary'>Return</a>
+</div>
+    
+{% endblock %}

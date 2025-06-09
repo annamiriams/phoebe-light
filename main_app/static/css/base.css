@@ -67,6 +67,21 @@ ul {
     list-style-type: none;
 }
 
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+    margin: 3em auto;
+    max-width: 500px;
+}
+
+.btn-container a {
+    display: inline-block;
+    text-align: center;
+}
+
 .btn-primary,
 .btn-secondary {
     font-family: "Source Sans 3", sans-serif;
@@ -94,6 +109,5 @@ ul {
     font-style: normal;
     font-size: 1em;
 }
-
 
 

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import DetailView
+from django.views.generic import DetailView, TemplateView
 from .models import Submission, Issue
+from django.contrib.auth import get_user_model
 
 from .forms import SubmissionForm
 from django.urls import reverse_lazy
@@ -18,6 +19,48 @@ def about(request):
 
 class IssueDetail(DetailView):
     model = Issue
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        issue = self.get_object()
+        
+        submissions_in_issue = issue.submissions.filter(approval_status = 'accepted')
+        
+        # Dictionary for unique authors in case they have multiple submissions (because a dictionary doesn't allow duplicate entries.)
+        unique_authors={}
+        for submission in submissions_in_issue:
+            if submission.created_by_id not in unique_authors:
+                unique_authors[submission.created_by_id] = submission.author
+                
+        context['authors'] = unique_authors
+        return context
+
+# TemplateView used because there is no direct model to pull from. Rather the view builds context from multiple queries 
+class AuthorDetail(TemplateView):
+    template_name = 'main_app/author_detail.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        # PKs from the URL:
+        issue_pk = self.kwargs['issue_pk']
+        author_pk = self.kwargs['author_pk']
+        
+        # Filter through submissions for all submissions that match the issue and author, and have accepted approval status.
+        context['submissions'] = Submission.objects.filter(
+            approved_issue_id = issue_pk,
+            created_by_id = author_pk,
+            approval_status = 'accepted'
+        )
+        
+        # Find the Issue object and add it to the context.
+        context['issue'] = Issue.objects.get(pk=issue_pk)
+        
+        # Find the first submission that matches the above context and add the author and author_bio to the context.  
+        context['author_name'] = context['submissions'].first().author
+        context['author_bio'] = context['submissions'].first().author_bio
+            
+        return context
 
 class SubmissionCreate(CreateView):
     model = Submission
