@@ -9,10 +9,12 @@
 }
 
 .author-bio {
-    padding: 3em 0 0;
+    padding: 10em 0 2em;
 }
 
 .author-bio p {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
     font-style: italic;
 }
 

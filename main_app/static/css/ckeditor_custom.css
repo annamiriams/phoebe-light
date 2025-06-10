@@ -6,18 +6,18 @@
     --ck-font-size-base: 16px;
 
     --ck-custom-background: rgba(255, 255, 255, 0.6);
-    --ck-custom-border-color: #e6c893;
+    --ck-custom-border-color: #c5c6d4;
 
-    --ck-color-focus-border: #e6c893;
-    --ck-color-base-border: #e6c893;
+    --ck-color-focus-border: #c5c6d4;
+    --ck-color-base-border: #c5c6d4;
 
-    --ck-color-button-default-hover-background: #e6c893;
+    --ck-color-button-default-hover-background: #c5c6d4;
     --ck-color-button-on-background: white;
-    --ck-color-button-on-color: #e6c893;
+    --ck-color-button-on-color: #c5c6d4;
     --ck-color-button-on-hover-background: rgba(255, 255, 255);
 
     --ck-color-toolbar-background: rgba(255, 255, 255, 0.6);
-    --ck-color-toolbar-border: #e6c893;
+    --ck-color-toolbar-border: #c5c6d4;
     --ck-color-panel-background: rgba(255, 255, 255, 0.8);
 }
 

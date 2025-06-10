@@ -36,7 +36,7 @@ form input,
 form textarea {
     background-color: rgba(255, 255, 255, 0.6);
     color: #000;
-    border: 1px solid #e6c893;
+    border: 1px solid #c5c6d4;
     padding: 10px;
     border-radius: 4px;
     width: 100%;
@@ -110,7 +110,7 @@ form textarea {
 }
 
 .submission-item a {
-    font-weight: 500;
+    font-weight: 300;
     align-self: center;
 }
 

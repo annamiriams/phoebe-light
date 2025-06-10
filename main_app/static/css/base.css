@@ -1,5 +1,12 @@
 /* Global styles */
 
+/* 
+Color guide
+e6c893: og yellow
+e7e5e7: grey to match logo
+c5c6d4: purple
+ */
+
 body {
     font-size: 16px;
     margin: 30px;
@@ -14,8 +21,8 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
     z-index: -1;
+    opacity: 0.4;
 }
 
 h1,
@@ -52,8 +59,6 @@ h4 {
     margin: 0 0 1em 0;
 }
 
-
-
 p {
     font-family: "Source Sans 3", sans-serif;
     font-optical-sizing: auto;
@@ -73,7 +78,7 @@ ul {
     align-items: center;
     gap: 1em;
     text-align: center;
-    margin: 3em auto;
+    margin: 6em auto;
     max-width: 500px;
 }
 
@@ -89,25 +94,25 @@ ul {
     font-style: normal;
     font-size: 1em;
     color: black;
-    border: 1px solid black;
+    border: .8px solid black;
     padding: .4em;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
+    transition-duration: 0.4s;
 }
 
 .btn-secondary {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: .4em;
+    margin: 1.6em;
     max-width: fit-content;
-    background-color: rgba(235, 202, 150, 0.6);
-    border: none;
-    font-family: "Source Sans 3", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 1em;
+    border: .8px solid black;
+    background-color: rgba(197, 198, 212, 0.6);
 }
 
-
+.btn-primary:hover,
+.btn-secondary:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);     
+}
