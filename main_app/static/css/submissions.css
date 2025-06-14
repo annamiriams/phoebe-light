@@ -12,6 +12,8 @@
     padding: 0.5em;
 }
 
+#id_title,
+#id_author,
 .submission-container p {
     font-family: "Source Sans 3", sans-serif;
     font-optical-sizing: auto;
@@ -76,6 +78,19 @@ form textarea {
     font-size: 1em;
 }
 
+.btn-delete {
+    /* reds */
+    /* background-color: #d4c5c6;
+    border: 1.6px solid #b3999b; */
+
+    /* yellows */
+    background-color: #e6e1db;
+    /* border: 1.6px solid #c7bbae; */
+
+    border: .8px solid black;
+
+}
+
 .submission-container label {
     font-size: 1.2em;
 }
@@ -130,11 +145,23 @@ form textarea {
     text-align: left;
 }
 
-.submission-actions {
+.delete-warning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4em;
+}
+
+.submission-actions,
+.delete-confirmation {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
+}
+
+.delete-confirmation {
+    flex-direction: column;
 }
 
 #issue-title {

@@ -5,12 +5,12 @@
 <h1>{{ submission.title }}</h1>
 
 <div class='submission-container'>
-    <h2>Are you sure you want to delete your submission, {{ submission.title }}?</h2>
+    <p class='delete-warning'>Are you sure you want to delete your submission, "{{ submission.title }}"?</p>
     <form action="" method="post" class="form">
         {% csrf_token %}
-        <div class='submission-actions'>
+        <div class='delete-confirmation'>
+            <button type="submit" class="btn-primary btn-delete">Delete</button>
             <a href="{% url 'submission-detail' submission.id %}" class="btn-primary">Cancel</a>
-            <button type="submit" class="btn-primary">Delete</button>
         </div>
     </form>
 </div>
