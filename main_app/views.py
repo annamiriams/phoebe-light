@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView, TemplateView
 from .models import Submission, Issue
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import SubmissionForm
 from django.urls import reverse_lazy
@@ -81,10 +82,10 @@ class SubmissionCreate(CreateView):
             context['submissions'] = None
         return context
 
-class SubmissionDetail(DetailView):
+class SubmissionDetail(LoginRequiredMixin, DetailView):
     model = Submission
     
-class SubmissionUpdate(UpdateView):
+class SubmissionUpdate(LoginRequiredMixin, UpdateView):
     model = Submission
     fields = [
         'title',
@@ -103,6 +104,6 @@ class SubmissionUpdate(UpdateView):
         context['is_update'] = True
         return context
     
-class SubmissionDelete(DeleteView):
+class SubmissionDelete(LoginRequiredMixin, DeleteView):
     model = Submission
     success_url = '/'
