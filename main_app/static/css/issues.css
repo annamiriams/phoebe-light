@@ -41,7 +41,7 @@
 .issue-link h2 {
     margin: 0;
     display: inline-block; 
-    font-size: 1.8em;
+    font-size: 2.2em;
 }
 
 .authors {
@@ -55,6 +55,6 @@
 .authors h3 {
     margin: 0;
     font-style: italic;
-    font-size: 1.4em;
+    font-size: 1.6em;
     display: inline-block;
 }

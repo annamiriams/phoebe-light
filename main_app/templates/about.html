@@ -1,7 +1,19 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
-{% comment %} <link rel="stylesheet" href="{% static 'css/home.css' %}" /> {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
 {% endblock %} {% block content %}
 
 <h1>About</h1>
+<br>
+<div class='about-container'>   
+    <p>Phoebe Light is a journal of poetry, poetics, criticism, and adjacent ventures. It takes its name from the great Alice Notley’s poem “Phoebe Light.”</p>
+</div>
+<br>
+<div class='poem-container'>
+    <h2>Phoebe Light</h2>
+    <div class='poem'>
+        <p>The great cosmetic</p>
+        <p>strangeness of the normal deep person.</p>
+    </div>
+</div>
 
 {% endblock %}

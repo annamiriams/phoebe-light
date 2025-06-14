@@ -5,9 +5,10 @@
 
 <h1>Submissions</h1>
 <br>
+<h2 class='submission-heading'>Submission Guidelines</h2>
+
 <div class='submission-guidelines'>
-    <h2 class='submission-heading'>Submission Guidelines</h2>
-    <p>{% lorem 1 b random %}</p>
+    <p>Phoebe Light welcomes your submissions on a rolling basis. We strive to respond to all submissions within 2 months. Please use the form below to submit your work.</p>
 </div>
 <br>
 {% if user.is_authenticated %}
@@ -29,6 +30,8 @@
         </div>
     </form>
 </div>
+
+<br>
 
 {% if not is_update %}
 <div class='user-submissions'>

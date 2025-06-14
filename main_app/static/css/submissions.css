@@ -80,6 +80,11 @@ form textarea {
     font-size: 1.2em;
 }
 
+.submission-guidelines {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
 .submission-guidelines p {
     width: 70%;
     margin: 0 auto;
@@ -103,10 +108,11 @@ form textarea {
     border: 1px solid #ccc;
     padding: 1em;
     border-radius: 5px;
-    min-width: 200px;
-    max-width: 250px;
+    min-width: 150px;
+    max-width: 150px;
     text-align: left;
     background-color: rgba(255, 255, 255, 0.6);
+    margin: 2em 0 6em;
 }
 
 .submission-item a {

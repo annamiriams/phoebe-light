@@ -1,0 +1,46 @@
+.about-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.about-container p {
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2em;
+}
+
+.poem-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4em auto;
+    padding: 3em;
+    max-width: fit-content;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.poem-container h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0 0 1em 0;
+    font-size: 2.2em;
+}
+
+.poem {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    display: flex;
+        
+}
+
+.poem p {
+    margin: 0;
+    line-height: 1.2em;
+    font-family: "Cormorant Garamond", serif;
+}
