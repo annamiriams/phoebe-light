@@ -8,7 +8,7 @@ from .forms import SubmissionForm
 from django.urls import reverse_lazy
 
 def home(request):
-    issues = Issue.objects.prefetch_related('submissions').all()
+    issues = Issue.objects.prefetch_related('submissions').all().order_by('-number')
     
     return render(request, 'home.html', {
         'issues': issues,
