@@ -25,9 +25,10 @@ Phoebe Light is a journal of poetry, poetics, criticism, and adjacent ventures. 
 * CSS
 * Django
 * CKEditor-5
+* PostgreSQL
 
 ## <a name="design"></a>Design
-* Phoebe Light aims to combine the aesthetics of online poetry journals with the functionality of a submission manager. Examples of the latter such as [Submission Manager](https://www.submissionmanager.net/), are typically clunky, unappealing, and expensive. Several contemporary online poetry journals served as inspiration including [Apartment Poetry Quarterly](http://www.aptpoetry.com/issue19/index.html), [Afternoon Visitor](https://www.afternoonvisitor.com/), and [Mercury Firs](https://www.mercuryfirs.org/).
+Phoebe Light aims to combine the aesthetics of online poetry journals with the functionality of a submission manager. Examples of the latter such as [Submission Manager](https://www.submissionmanager.net/), are typically clunky, unappealing, and expensive. Several contemporary online poetry journals served as inspiration including [Apartment Poetry Quarterly](http://www.aptpoetry.com/issue19/index.html), [Afternoon Visitor](https://www.afternoonvisitor.com/), and [Mercury Firs](https://www.mercuryfirs.org/).
 
 ## <a name="nextsteps"></a>Project Next Steps
 * Develop mobile-friendly version
