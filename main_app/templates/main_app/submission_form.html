@@ -39,7 +39,6 @@
     {% if submissions %}
     <ul>
         {% for submission in submissions %}
-        {% comment %} <a href='{% url ' submission-detail' submission.id %}'> {% endcomment %}
             <li class='submission-item'>
                 <h4 class='submission-title'>{{ submission.title }}</h4>
                 <div>Status: {{ submission.approval_status|capfirst }}</div>
@@ -49,7 +48,6 @@
                 {% endif %}
                 <a href='{% url 'submission-detail' submission.id %}' class='btn-secondary'>View</a>
             </li>
-            {% comment %} </a> {% endcomment %}
             {% endfor %}
     </ul>
     {% else %}
@@ -61,7 +59,6 @@
 {% else %}
 <div class='btn-container'>
     <a href='{% url 'register' %}' class='btn-primary'>Register to Submit</a>
-    {% comment %} <p>or view your submissions by logging in</p> {% endcomment %}
     <a href='{% url 'login' %}' class='btn-primary'>Log In</a>
 </div>
 {% endif %}
