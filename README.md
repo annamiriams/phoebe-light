@@ -1,6 +1,6 @@
 # PHOEBE LIGHT
 
-<img src="../phoebe-light/main_app/static/images/pl-overview.jpg" alt="An overview of the Phoebe Light website that shows the logo in the top left, the navbar spread out to the right, the name centered below, all displayed over the background image of a watercolor mountain landscape."/>
+<img src="./main_app/static/images/pl-overview.jpg" alt="An overview of the Phoebe Light website that shows the logo in the top left, the navbar spread out to the right, the name centered below, all displayed over the background image of a watercolor mountain landscape."/>
 
 ## Description
 Phoebe Light is a journal of poetry, poetics, criticism, and adjacent ventures. It takes its name from the great Alice Notley’s poem “Phoebe Light.”
